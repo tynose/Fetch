@@ -64,7 +64,7 @@ Have you ever had issue with keeping track of your vet records? did they get los
 
 **Front-End**
 
-[![|](./assets/sitemap.png)]()
+[![|](./documentation/assets/sitemap.png)]()
 
 **Back-End**
 **End Points:**
@@ -170,7 +170,7 @@ const record = {
 **Wireframe:**
 
 
-[![|](./assets/wireframe.jpg)]()
+[![|](./documentation/assets/wireframe.jpg)]()
 
 ### Project Timeline (Dec 3 - 12, 2018)
 
