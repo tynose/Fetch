@@ -1,0 +1,67 @@
+//MIXINS
+
+@mixin flex-center(){
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin button(){
+  margin-top: 10px;
+  height: 50px;
+  width: 80%;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  color: white;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  &:hover {
+    background-color: #0000000d;
+    color: black;
+    transform: scale(1.05);
+  }
+}
+
+@mixin form(){
+  &__form {
+    width: 100%;
+  }
+  &__inputFields {
+    margin-bottom: 35px;
+  }
+  &__label {
+    display: flex;
+    width: 100%;
+    position: relative;
+    margin-bottom: 25px;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  &__input {
+    appearance: none;
+    outline: none;
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid grey;
+    height: 50px;
+    &::placeholder {
+      color: $silver-grey;
+    }
+    &:focus-within {
+      color: black;
+      border-bottom: 3px solid grey
+    }
+  }
+  &__input-error {
+    width: 100%;
+    display: flex;
+    color: red;
+    position: absolute;
+    margin: 40px 0 0 15%;
+  }
+  &__btn {
+   @include button();
+   background-color: #1a2634;
+  }
+}

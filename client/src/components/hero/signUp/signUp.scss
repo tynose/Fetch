@@ -1,0 +1,54 @@
+@import './styles/partials/variables';
+@import './styles/partials/mixins';
+
+
+.modal-layer {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-color: transparent;
+}
+
+.form-container {
+  position: absolute;
+  color: rgb(57,57,57);
+  background-color: #FFFFFF;
+  padding: 35px 55px;
+  width: 600px;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  z-index: 2;
+  border-radius: 3px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  &__close-button {
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+     &:hover {
+      opacity: 0.3;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+  &__close-icon {
+    margin-bottom: 10px;
+  }
+  &__close-text {
+    text-transform: uppercase;
+    color: $silver-grey;
+  }
+}
+
+.signUp {
+  @include form()
+}

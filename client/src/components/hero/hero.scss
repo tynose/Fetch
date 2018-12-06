@@ -1,0 +1,69 @@
+@import './styles/partials/variables';
+@import './styles/partials/mixins';
+
+.hero {
+  &__landing-page {
+    justify-content: space-between;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('/assets/images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  &__content {
+    margin: 150px auto 0 0;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+  &__forms {
+    padding: 20px;
+  }
+  &__signUpBtn {
+    @include button();
+    background-color: $orange;
+  }
+  &__icon {
+    height: 200px;
+  }
+  &__logo-text {
+    position: absolute;
+  }
+  &__learn {
+    display: flex;
+    background: linear-gradient(#e6646500, #c5c5c5);
+    color: $grey;
+    width: 100%;
+    bottom: 0;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  &__mission {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    height: 100vh;
+    width: 100vw;
+    opacity: 0.8;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)), url('/assets/images/mission.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  &__missionStatement {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    opacity: 0.3;
+    width: 70%;
+    height: 50%;
+  }
+}
