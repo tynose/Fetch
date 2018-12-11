@@ -19,11 +19,11 @@ exports.detailsCreate = function (req, res, next) {
     if (err) {
       return next(err);
     }
-    res.status(201).send({ msg: "a new timeline card has been created" });
+    res.status(201).send({ msg: "details have been created" });
   });
   Profile.findById(details.profile)
     .then(profile => {
-      profile.details.push(Details(details));
+      profile.details.unshift(Details(details));
       return profile.save();
     })
     .catch(err => {

@@ -28,7 +28,7 @@ const profileSchema = new Schema({
   },
   details: {
     type: [Details.schema],
-    default: {},
+    default: [],
     required: true
   },
   record: [{

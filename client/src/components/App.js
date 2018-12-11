@@ -5,8 +5,8 @@ import Home from './home/home';
 import VetsForm from './vetsForm/vetsForm';
 import './App.scss';
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faUser, faKey, faEnvelope, faBone, faTimes, faEdit } from "@fortawesome/free-solid-svg-icons";
-library.add(faUser, faKey, faEnvelope, faBone, faTimes, faEdit);
+import { faUser, faKey, faEnvelope, faBone, faTimes, faEdit, faPhone, faMapPin, faComment } from "@fortawesome/free-solid-svg-icons";
+library.add(faUser, faKey, faEnvelope, faBone, faTimes, faEdit, faPhone, faMapPin, faComment);
 
 class App extends Component {
   render() {
@@ -18,7 +18,6 @@ class App extends Component {
             <Route path={'/profile'} exact component={Profile} />
 
             <Route path={'/vetsform/:id'} render={(props) => { return <VetsForm {...props} /> }} />
-            {/* <Route path={'/vetsform'} exact component={VetsForm} /> */}
           </Switch>
         </Router>
       </div>

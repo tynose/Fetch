@@ -50,6 +50,7 @@ export default class TimelineCardForm extends Component {
     const { enabled, fields } = this.state;
 
     const data = {
+      date_created: Date(),
       profile: _id,
       event: fields.event.value,
       details: fields.details.value
@@ -65,7 +66,7 @@ export default class TimelineCardForm extends Component {
       };
 
       fetch("http://localhost:8080/timelinecard/create", init)
-        .then(() => this.props.getTimelineCards())
+        .then(() => this.props.getData())
         .catch(err => {
           console.log(err);
         });
@@ -75,14 +76,14 @@ export default class TimelineCardForm extends Component {
       }
     }
     
-  render() {             
+  render() {            
     const { submited, fields } = this.state;
     const { event, details } = fields;
-
+    
     return (
       <div className="timelineCardForm">
         <h4 className="timelineCardForm__header">
-          What's Tucker been up to?
+          {this.props.details && this.props.details.name ? `What's ${this.props.details.name} been up to?` : <h4>What's your pet been up to?</h4>}
         </h4>
         <form className="timelineCardForm__form" onSubmit={event => this.formSubmit(event)}>
           <div className="timelineCardForm__inputFields">

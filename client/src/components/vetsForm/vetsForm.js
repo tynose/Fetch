@@ -79,9 +79,7 @@ export default class VetsForm extends Component {
     }
   }
 
-  render() {
-    console.log(this.props);
-    
+  render() {    
     const { submited, fields } = this.state;
     const { 
       vet_clinic,
@@ -96,7 +94,8 @@ export default class VetsForm extends Component {
      } = fields;
 
 
-    return <div className="vetsForm">
+    return ( 
+      <div className="vetsForm">
         <img className="vetsForm__icon" src="/assets/icons/logo/logo_transparent.png" alt="logo" />
         <form className="vetsForm__form" onSubmit={event => this.record(event)}>
           <div className="vetsForm__inputFields">
@@ -149,7 +148,7 @@ export default class VetsForm extends Component {
                 </span>}
             </label>
             <label className="vetsForm__label">
-            <input className="vetsForm__input" type="text" name="misc" value={misc.value} onChange={this.handleChange} placeholder="misc. information" pattern="^(?!\s*$).+" />
+            <textarea className="vetsForm__input vetsForm__input--text" type="text" name="misc" value={misc.value} onChange={this.handleChange} placeholder="misc. information" pattern="^(?!\s*$).+" />
               {!misc.isValid && submited && <span className="vetsForm__input-error">
                   password is required
                 </span>}
@@ -159,7 +158,8 @@ export default class VetsForm extends Component {
             Submit Records
           </button>
         </form>
-      </div>;
+      </div>
+    )
   }
 }
 

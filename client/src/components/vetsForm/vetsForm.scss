@@ -14,6 +14,21 @@
   &__label {
     height: 50px;
   }
+  &__inputFields {
+    width: 100%;
+  }
+  &__input {
+    width: 100%;
+    &--text {
+      resize: none;
+      min-width: 100%;
+      max-width: 100%;
+      min-height: 25px;
+      border-bottom: none;
+      height: 50px;
+      margin: 10px 0 10px 0;  
+    }
+  }
   &__form {
     width: 60vw;
     background-color: white;

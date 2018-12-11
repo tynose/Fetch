@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './home.scss';
 import Login from './login/login';
 import SignUp from './signUp/signUp';
+import ContactForm from './contactForm/contactForm';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class Home extends Component {
   constructor(props) {
@@ -43,9 +45,31 @@ export default class Home extends Component {
         </div>
         <div id="mission" className="home__mission">
           <div className="home__missionStatement">
-            <p>mission</p>
+            <h3>
+              Here at Fetch we strive to connect all of your pets essentials
+              records to those who may need them
+            </h3>
           </div>
         </div>
+        <footer className="home__footer">
+          <div className="home__footerContent">
+            <div className="home__footerContactIcons">
+              <div className="home__contact">
+                <FontAwesomeIcon className="home__footerIcons" icon="map-pin" />
+                <h4>123 King St. West</h4>
+              </div>
+            < div className="home__contact">
+                <FontAwesomeIcon className="home__footerIcons" icon="phone" />
+                <h4>705-717-1240</h4>
+              </div>
+              <div className="home__contact">
+                <FontAwesomeIcon className="home__footerIcons" icon="envelope" />
+                <h4>TylerNoseworthy21@gmail.com</h4>
+              </div>  
+            </div>
+            <ContactForm />
+          </div>
+        </footer>
       </div>;
   }
 }

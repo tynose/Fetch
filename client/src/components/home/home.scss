@@ -56,17 +56,43 @@
     justify-content: center; 
     height: 100vh;
     width: 100vw;
-    opacity: 0.8;
     background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('/assets/images/mission.jpg');
     background-size: cover;
     background-position: center;
   }
   &__missionStatement {
+    text-align: center;
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    width: 50%;
+    height: 50%;
+  }
+  &__footer {
+    background-color: #1a2634;
     display: flex;
     justify-content: center;
+    width: 100%;
+    padding: 100px 0;
+  }
+  &__footerContent {
+    justify-content: space-between;
+    display: flex;
+    width: 70vw;
+  }
+  &__footerContactIcons {
+    height: 120px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 37%;
+  }
+  &__footerIcons {
+    margin-right: 10px;
+  }
+  &__contact {
+    display: flex;
     align-items: center;
-    opacity: 0.3;
-    width: 70%;
-    height: 50%;
   }
 }

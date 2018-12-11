@@ -49,7 +49,7 @@ exports.timelineCardUpdate = function (req, res, next) {
   .then()
 };
 
-exports.timelineCardDelete = function (req, res) {
+exports.timelineCardDelete = function (req, res, next) {
   TimelineCard.findByIdAndRemove(req.params.id, (err) => {
     if (err) {
       res.status(500).json({

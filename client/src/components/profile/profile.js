@@ -9,22 +9,22 @@ export default class Profile extends Component {
   constructor(props) {
     super(props);
 
-    this.getTimelineCards = this.getTimelineCards.bind(this);
+    this.getData = this.getData.bind(this);
 
     this.state = {
       isLoading: true,
-      details: {},
-      record: {},
-      timeline_card: {},
+      details: [],
+      record: [],
+      timeline_card: [],
       userInfo: {},
     };
   }
 
   componentDidMount() {
-    this.getTimelineCards();
+    this.getData();
   }
 
-  getTimelineCards() {
+  getData() {
     const init = {
       method: "GET",
       headers: {
@@ -36,7 +36,7 @@ export default class Profile extends Component {
       .then(data => {
         this.setState({
           userInfo: data,
-          details: data.details,
+          details: data.details[0],
           record: data.record,
           timeline_card: data.timeline_card,
           isLoading: false
@@ -52,15 +52,17 @@ export default class Profile extends Component {
 
   render() {
     const { details, record, timeline_card, userInfo } = this.state;
+    console.log(this.state);
+    
   
     return <div className="profile">
         <div className="profile__backgroundPhoto">
           <Nav />
-          <Details details={details} />
+        <Details details={details} getData={this.getData} userInfo={userInfo} />
         </div>
         <div className="profile__mainContent">
           <Records userInfo={userInfo} record={record} />
-          <TimelineCards getTimelineCards={this.getTimelineCards} userInfo={userInfo} timeline_card={timeline_card} />
+          <TimelineCards getData={this.getData} details={details} userInfo={userInfo} timeline_card={timeline_card} />
         </div>
       </div>;
   }

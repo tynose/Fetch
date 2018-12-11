@@ -13,7 +13,7 @@ export default class Details extends Component {
       detailsFormOpen: false,
     };
   }
-
+  
   componentDidMount() {
     const init = {
       method: "GET",
@@ -39,41 +39,64 @@ export default class Details extends Component {
 
   render() {
     const { detailsFormOpen } = this.state;
+    const { details } = this.props;
 
-    return (
+    return ( 
       <div className="details">
         <FontAwesomeIcon className="details__editIcon" onClick={this.handleClose} icon="edit" />
         <img className="details__picture" src="/assets/images/profile-picture.jpg" alt="users animal" />
+        {details ? 
         <div className="details__content">
-          <h3 className="details__name">Tucker</h3>
-          <div className="details__text" />
-          <div className="details__info">
-            <h4 className="details__infoTitle">Age</h4>
-            <p className="details__infoText">2</p>
-          </div>
-          <div className="details__info">
-            <h4 className="details__infoTitle">Breed</h4>
-            <p className="details__infoText">Golden retriever</p>
-          </div>
-          <div className="details__info">
-            <h4 className="details__infoTitle">Gender</h4>
-            <p className="details__infoText">Male</p>
-          </div>
-          <div className="details__info">
-            <h4 className="details__infoTitle">Good boy Status</h4>
-            <p className="details__infoText">True</p>
-          </div>
-          <div className="details__info">
-            <h4 className="details__infoTitle">Birthday</h4>
-            <p className="details__infoText">May 25, 2017</p>
-          </div>
-          <div className="details__info">
-            <h4 className="details__infoTitle">Owner</h4>
-            <p className="details__infoText">Tyler Noseworthy</p>
-          </div>
-        </div>
-        <DetailsForm handleClose={this.handleClose} detailsFormOpen={detailsFormOpen} />
+          <h3 className="details__name">{details.name}</h3>
+            <div className="details__text" />
+            <div className="details__info">
+              <h4 className="details__infoTitle">Age</h4>
+              <p className="details__infoText">{details.age}</p>
+            </div>
+            <div className="details__info">
+              <h4 className="details__infoTitle">Breed</h4>
+              <p className="details__infoText">{details.breed}</p>
+            </div>
+            <div className="details__info">
+              <h4 className="details__infoTitle">Gender</h4>
+              <p className="details__infoText">{details.gender}</p>
+            </div>
+            <div className="details__info">
+              <h4 className="details__infoTitle">Birthday</h4>
+              <p className="details__infoText">{details.date_of_birth}</p>
+            </div>
+            <div className="details__info">
+              <h4 className="details__infoTitle">Owner</h4>
+              <p className="details__infoText">{details.owner}</p>
+            </div>
+          </div> : 
+          <div className="details__content">
+            <h4 className="details__name">Add some details</h4>
+            <div className="details__text" />
+            <div className="details__info">
+              <h4 className="details__infoTitle">Age</h4>
+              <p className="details__infoText"></p>
+            </div>
+            <div className="details__info">
+              <h4 className="details__infoTitle">Breed</h4>
+              <p className="details__infoText"></p>
+            </div>
+            <div className="details__info">
+              <h4 className="details__infoTitle">Gender</h4>
+              <p className="details__infoText"></p>
+            </div>
+            <div className="details__info">
+              <h4 className="details__infoTitle">Birthday</h4>
+              <p className="details__infoText"></p>
+            </div>
+            <div className="details__info">
+              <h4 className="details__infoTitle">Owner</h4>
+              <p className="details__infoText"></p>
+            </div>
+          </div> }
+        <DetailsForm handleClose={this.handleClose} {...this.props} getData={this.props.getData} detailsFormOpen={detailsFormOpen} />
       </div>
     )
   }
 }
+

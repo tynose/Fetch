@@ -4,7 +4,9 @@ import TimelinePost from '../timelinePost/timelinePost';
 
 export default class timelinePosts extends Component {
   render() {
-    const { timeline_card } = this.props;
+    const { timeline_card, getData } = this.props;
+
+    
         
     return <div className="timelinePosts">
         <h5 className="timelinePosts__header">Posts</h5>
@@ -14,6 +16,7 @@ export default class timelinePosts extends Component {
               <TimelinePost
                 key={index}
                 {...timeline_card}
+                getData={getData}
                 id={post._id}
                 date_created={post.date_created}
                 event={post.event}

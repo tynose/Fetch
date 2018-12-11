@@ -29,6 +29,7 @@ export default class Records extends Component {
     const display = emailOpen => {
       return {
         display: emailOpen ? 'none' : 'flex',
+        textAlign: 'center'
       }
     }
     

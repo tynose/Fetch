@@ -2,24 +2,6 @@ import React, { Component } from 'react';
 import './recordsEmail.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const defaultState = {
-  enabled: false,
-  submited: false,
-  fields: {
-    email: {
-      value: "",
-      isValid: false
-    },
-    subject: {
-      value: "",
-      isValid: false
-    },
-    text: {
-      value: "",
-      isValid: false
-    }
-  }
-};
 
 export default class RecordsEmail extends Component {
   constructor(props) {
@@ -72,7 +54,7 @@ export default class RecordsEmail extends Component {
       to: fields.email.value, 
       from: "tylernoseworthy21@gmail.com", 
       subject: fields.subject.value, 
-      html: `${fields.text.value}. <br><strong> visit this link to fill out their <a href='http://localhost:3006/vetsform/${userInfo._id}'>form</a></strong>` };
+      html: `${fields.text.value}. <br><strong> visit this link to fill out their <a href='http://localhost:3000/vetsform/${userInfo._id}'>form</a></strong>` };
     const init = {
       method: 'POST',
       body: JSON.stringify(msg),
@@ -131,3 +113,22 @@ export default class RecordsEmail extends Component {
     )
   }
 }
+
+const defaultState = {
+  enabled: false,
+  submited: false,
+  fields: {
+    email: {
+      value: "",
+      isValid: false
+    },
+    subject: {
+      value: "",
+      isValid: false
+    },
+    text: {
+      value: "",
+      isValid: false
+    }
+  }
+};
