@@ -1,0 +1,11 @@
+.nav {
+  padding: 0 20px;
+  display: flex; 
+  align-items: center;
+  height: 90px;
+  width: 100vw;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  &__icon {
+    height: 70px;
+  }
+}

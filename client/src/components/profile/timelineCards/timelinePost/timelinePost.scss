@@ -1,0 +1,51 @@
+@import './styles/partials/variables';
+@import './styles/partials/mixins';
+
+.timelinePost {
+  position: relative;
+  display: flex;
+  padding: 35px;
+  border-radius: 3px;
+  width: 100%;
+  margin-bottom: 25px;
+  height: auto;
+  box-shadow: 0px 8px 25px 5px rgba(107, 106, 106, 0.12);
+  background-color: white;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  &__avator {
+    height: auto;
+    margin-right: 10px;
+  }
+  &__image {
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  &__event {
+     color: #4d78ab;
+     font-weight: 800;
+  }
+  &__date {
+    color: $silver-grey;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    border-bottom: 1px solid $silver-grey;
+  }
+  &__close-icon {
+    position: absolute;
+    top: 10px;
+    color: $hover-grey;
+    right: 10px;
+    &:hover {
+      color: black;
+    }
+  }
+}
+

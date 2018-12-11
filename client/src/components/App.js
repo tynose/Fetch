@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Profile from './profile/profile';
-import Hero from './hero/hero';
-import VetsInArea from './vetsInArea/vetsInArea';
+import Home from './home/home';
+import VetsForm from './vetsForm/vetsForm';
 import './App.scss';
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faUser, faKey, faEnvelope, faBone } from "@fortawesome/free-solid-svg-icons";
-library.add(faUser, faKey, faEnvelope, faBone);
+import { faUser, faKey, faEnvelope, faBone, faTimes, faEdit } from "@fortawesome/free-solid-svg-icons";
+library.add(faUser, faKey, faEnvelope, faBone, faTimes, faEdit);
 
 class App extends Component {
   render() {
@@ -14,9 +14,11 @@ class App extends Component {
       <div className="App">
         <Router>
           <Switch>
-            <Route path={'/hero'} exact component={Hero} />
+            <Route path={'/'} exact component={Home} />
             <Route path={'/profile'} exact component={Profile} />
-            <Route path={'/vetsInArea'} exact component={VetsInArea} />
+
+            <Route path={'/vetsform/:id'} render={(props) => { return <VetsForm {...props} /> }} />
+            {/* <Route path={'/vetsform'} exact component={VetsForm} /> */}
           </Switch>
         </Router>
       </div>

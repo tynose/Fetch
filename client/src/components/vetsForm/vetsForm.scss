@@ -1,0 +1,26 @@
+@import './styles/partials/variables';
+@import './styles/partials/mixins';
+
+.vetsForm {
+  display: flex;
+  padding: 40px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  height: auto;
+  background-color: gainsboro;
+  @include form();
+  &__label {
+    height: 50px;
+  }
+  &__form {
+    width: 60vw;
+    background-color: white;
+    padding: 40px;
+  }
+  &__icon {
+    height: 200px;
+    margin-bottom: 30px;
+  }
+}

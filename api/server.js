@@ -1,25 +1,34 @@
 const express = require('express'),
   PORT = process.env.PORT || 8080;
   app = express(),
+  cors = require("cors");
   bodyParser = require('body-parser'),
   bcrypt = require('bcrypt'),
   mongoose = require('mongoose'),
   jwt = require('jsonwebtoken'),
-  profile = require('./routes/profile-route');
-  Profile = require('./models/profile');
-  Detail = require('./models/detail');
-  Record = require('./models/record');
-  TimelineCard = require('./models/timeline-card');
+  sgMail = require('@sendgrid/mail');
+  profile = require('./routes/profile-route'),
+  record = require('./routes/record-route'),
+  details = require('./routes/details-route'),
+  timelineCard = require('./routes/timeline-card-route');
+
+// requiring ENV //
+
+require("dotenv").config();
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+// setup middleware //
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true }));
+app.use(bodyParser.urlencoded({extended: false }));
+app.use(cors());
 
 // Routes //
 
-app.use('/profiles', profile);
-// app.use('/record', record);
-// app.use('/details', details);
-// app.use('/timeline-card', timelineCard);
+app.use("/profile", profile);
+app.use('/record', record);
+app.use('/details', details);
+app.use('/timelinecard', timelineCard);
 
 // setup conection to MongoDB //
 
@@ -32,7 +41,6 @@ db.once('open', () => {
 });
 
 // -------------------------- //
-
 
 app.listen(PORT, (err) => {
   if (err) {

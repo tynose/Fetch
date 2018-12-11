@@ -1,23 +1,14 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const Profile = require('../models/profile');
+const Profile = require("../models/profile");
 
 const timelineCardSchema = new Schema({
-  profile_id: {
-    type: Schema.Types.ObjectId,
-    ref: "Profile"
-  },
-  username: {
-    type: String,
-    required: true,
-    max: 100
-  },
   event: {
     type: String,
     required: true,
     max: 100
   },
-  detials: {
+  details: {
     type: String,
     required: true,
     max: 100
@@ -26,6 +17,10 @@ const timelineCardSchema = new Schema({
     type: Date,
     required: true,
     default: new Date()
+  },
+  profile: {
+    type: Schema.Types.ObjectId,
+    ref: "Profile"
   }
 });
 
