@@ -69,6 +69,7 @@ export default class Home extends Component {
             </div>
             <ContactForm />
           </div>
+          <small className="home__copyright">&copy; Copyright 2018, Fetch</small> 
         </footer>
       </div>;
   }

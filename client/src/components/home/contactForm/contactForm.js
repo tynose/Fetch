@@ -84,6 +84,7 @@ export default class ContactForm extends Component {
 
     return (
       <div className="contactForm">
+        <h3 className="contactForm__header">Contact Us</h3>
         <form className="contactForm__form" onSubmit={event => this.contactForm(event)}>
           <div className="contactForm__inputFields">
             <label className="contactForm__label">

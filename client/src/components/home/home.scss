@@ -69,30 +69,43 @@
     height: 50%;
   }
   &__footer {
+    align-items: center;
+    flex-direction: column;
     background-color: #1a2634;
     display: flex;
-    justify-content: center;
     width: 100%;
-    padding: 100px 0;
+    padding: 100px 0 20px 0;
   }
   &__footerContent {
     justify-content: space-between;
     display: flex;
     width: 70vw;
+    margin-bottom: 40px;
   }
   &__footerContactIcons {
+    height: 250px;
+    margin-right: 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  &__footerIcons {
     height: 120px;
     color: white;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    width: 37%;
-  }
-  &__footerIcons {
-    margin-right: 10px;
+    margin: 12px 20px 0 0;
   }
   &__contact {
     display: flex;
     align-items: center;
+  }
+  &__copyright {
+    color: white;
+    display: flex;
+    align-self: flex-start;
+    margin-left: 20px;
   }
 }

@@ -80,11 +80,13 @@ export default class TimelineCardForm extends Component {
     const { submited, fields } = this.state;
     const { event, details } = fields;
     
-    return (
-      <div className="timelineCardForm">
-        <h4 className="timelineCardForm__header">
-          {this.props.details && this.props.details.name ? `What's ${this.props.details.name} been up to?` : <h4>What's your pet been up to?</h4>}
-        </h4>
+    return <div className="timelineCardForm">
+        {this.props.details && this.props.details.name ? <h4 className="timelineCardForm__header">
+            `What's ${this.props.details.name} been up to?`
+          </h4> : 
+          <h4 className="timelineCardForm__header">
+            What's your pet been up to?
+          </h4>}
         <form className="timelineCardForm__form" onSubmit={event => this.formSubmit(event)}>
           <div className="timelineCardForm__inputFields">
             <label className="timelineCardForm__label">
@@ -101,7 +103,7 @@ export default class TimelineCardForm extends Component {
             </label>
           </div>
           <div className="timelineCardForm__formbtns">
-            <button className="timelineCardForm__btn timelineCardForm__btn--clear" onClick={() => this.setState(defaultState)} type="button" >
+            <button className="timelineCardForm__btn timelineCardForm__btn--clear" onClick={() => this.setState(defaultState)} type="button">
               Clear
             </button>
             <button className="timelineCardForm__btn timelineCardForm__btn--submit" onClick={() => this.submited()} type="submit">
@@ -109,8 +111,7 @@ export default class TimelineCardForm extends Component {
             </button>
           </div>
         </form>
-      </div>
-    )
+      </div>;
   }
 }
 
