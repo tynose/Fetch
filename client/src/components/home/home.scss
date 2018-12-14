@@ -1,0 +1,126 @@
+@import './styles/partials/variables';
+@import './styles/partials/mixins';
+
+.home {
+  &__landing-page {
+    justify-content: space-between;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('/assets/images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  &__content {
+    margin: 150px auto 0 0;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+  &__forms {
+    padding: 20px;
+  }
+  &__signUpBtn {
+    @include button();
+    background-color: $orange;
+  }
+  &__icon {
+    height: 200px;
+  }
+  &__logo {
+    display: flex;
+    justify-content: center;
+  }
+  &__logo-text {
+    position: absolute;
+  }
+  &__learn {
+    display: flex;
+    background: linear-gradient(#e6646500, #c5c5c5);
+    color: $grey;
+    width: 100%;
+    bottom: 0;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  &__mission {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('/assets/images/mission.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  &__missionStatement {
+    text-align: center;
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    width: 50%;
+  }
+  &__footer {
+    align-items: center;
+    flex-direction: column;
+    background-color: #1a2634;
+    display: flex;
+    width: 100%;
+    padding: 100px 0 20px 0;
+  }
+  &__footerContent {
+    justify-content: space-between;
+    display: flex;
+    width: 70vw;
+    margin-bottom: 40px;
+  }
+  &__footerContactIcons {
+    height: 250px;
+    margin-right: 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  &__footerIcons {
+    height: 120px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 12px 20px 0 0;
+  }
+  &__contact {
+    display: flex;
+    align-items: center;
+  }
+  &__copyright {
+    color: white;
+    display: flex;
+    align-self: flex-start;
+    margin-left: 20px;
+  }
+}
+
+@media #{$phone} {
+  .home {
+    &__content {
+      height: 100%;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.65);
+    }
+    &__footerContent {
+      flex-direction: column;
+    }
+    &__missionStatementText {
+      font-size: 1.5rem;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+@import './styles/partials/variables';
+
+.details {
+  display: flex;
+  position: relative;
+  border-radius: 3px;
+  margin-bottom: 100px;
+  width: 70vw;
+  height: 450px;
+  box-shadow: 0px 8px 25px 5px rgba(107, 106, 106, 0.12);
+  background-color: white;
+  top: 38%;
+  &__name {
+    margin-bottom: 20px;
+    border-bottom: 2px solid gainsboro;
+    padding: 20px 0;  
+  }
+  &__content {
+    padding: 15px;
+    justify-content: space-evenly;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+  &__text {
+    background-color: gainsboro;
+    width: 100%;
+  }
+  &__picture {
+    border-radius: 3px;
+    height: 100%;
+    width: 45%;
+    object-fit: cover;
+  }
+  &__info {
+    border-bottom: 1px solid gainsboro;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 100%;
+    padding-bottom: 15px;
+  }
+  &__infoTitle {
+    width: 50%;
+  }
+  &__infoText {
+    text-align: right;
+  }
+  &__editIcon {
+    position: absolute;
+    top: 10px;
+    color: #efe6e6;
+    right: 10px;
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+@media #{$phone} {
+  .details {
+    flex-direction: column;
+    height: auto;
+    display: initial;
+    width: 90vw;
+    &__picture {
+      width: 100%;
+    }
+  }
+}
+
+@media #{$phone-small} {
+  .details {
+    width: 95vw;
+    &__picture {
+      width: 100%;
+    }
+  }
+}

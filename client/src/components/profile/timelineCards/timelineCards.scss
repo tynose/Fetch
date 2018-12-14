@@ -1,0 +1,27 @@
+@import './styles/partials/variables';
+@import './styles/partials/mixins';
+
+.timelineCard {
+  &__content {
+    flex-direction: column;
+    display: flex;
+    width: 70vw;
+    height: auto;
+  }
+}
+
+@media #{$phone} {
+  .timelineCard {
+    &__content {
+      width: 90vw;
+    }
+  }
+}
+
+@media #{$phone-small} {
+  .timelineCard {
+    &__content {
+      width: 95vw;
+    }
+  }
+}

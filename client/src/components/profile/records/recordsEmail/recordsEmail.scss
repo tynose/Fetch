@@ -1,0 +1,60 @@
+@import './styles/partials/variables';
+@import './styles/partials/mixins';
+
+.recordsEmail {
+    border-bottom: 1px solid black;
+    padding-bottom: 35px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+  @include form();
+  &__header {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  &__inputFields {
+    margin-bottom: 5px;
+  }
+  &__input {
+    width: 100%;
+    &--text {
+      resize: none;
+      max-width: 100%;
+      min-width: 100%;
+      min-height: 25px;
+      border-bottom: none;
+      height: 50px;
+      margin: 10px 0 10px 0;  
+    }
+  }
+  &__label {
+    margin-bottom: 20px;
+  }
+  &__formbtns {
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__btn {
+    width: 9rem;
+    margin-top: 0;
+    height: 35px;
+    background-color: $orange;
+    color: white;
+    &:active > .recordsEmail {
+      height: 315px;
+    }
+  }
+  &__input-error {
+      margin: 40px 0 0 0;
+  }
+  &__close-icon {
+    position: absolute;
+    top: 0;
+    color: $hover-grey;
+    right: 0;
+    &:hover {
+      color: black;
+    }
+  }
+}

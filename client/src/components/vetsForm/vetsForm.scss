@@ -1,0 +1,56 @@
+@import './styles/partials/variables';
+@import './styles/partials/mixins';
+
+.vetsForm {
+  display: flex;
+  padding: 40px;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  height: auto;
+  background-color: gainsboro;
+  @include form();
+  &__label {
+    height: 50px;
+  }
+  &__inputFields {
+    width: 100%;
+  }
+  &__input {
+    width: 100%;
+    &--text {
+      resize: none;
+      min-width: 100%;
+      max-width: 100%;
+      min-height: 25px;
+      border-bottom: none;
+      height: 50px;
+      margin: 10px 0 10px 0;  
+    }
+  }
+  &__input-error {
+    margin: 40px 0 0 0;
+  }
+  &__form {
+    width: 60vw;
+    background-color: white;
+    padding: 40px;
+  }
+  &__icon {
+    height: 200px;
+    margin-bottom: 30px;
+  }
+  &__submitted {
+    display: flex;
+    background-color: rgba(37, 34, 34, 0.67);
+    width: 100vw;
+    height: 100%;
+    z-index: 1;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+}
