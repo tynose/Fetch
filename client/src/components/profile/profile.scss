@@ -24,3 +24,19 @@
     align-items: center;
   }
 }
+
+@media #{$phone} {
+  .profile {
+    &__mainContent {
+      padding: 90% 0 50px 0;      
+    }
+  }
+}
+
+@media #{$phone-small} {
+  .profile {
+    &__mainContent {
+      padding: 100% 0 50px 0;      
+    }
+  }
+}

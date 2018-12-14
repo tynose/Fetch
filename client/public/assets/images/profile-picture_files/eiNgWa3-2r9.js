@@ -1,0 +1,3 @@
+if (self.CavalryLogger) { CavalryLogger.start_js(["6t+2N"]); }
+
+__d("useGalahadDropdownMenu",["React","ReactHooks_DEPRECATED","WorkGalahadDropdownMenu.react"],(function(a,b,c,d,e,f){"use strict";__p&&__p();var g=b("ReactHooks_DEPRECATED").useRef,h=b("ReactHooks_DEPRECATED").useState;function a(a){var c=a.alignment,d=a.label,e=a.menuData,f=a.onShow,i=a.onHide,j=a.position;a=a.width;var k=h(!1),l=k[0],m=k[1],n=g();function o(a){m(a),a?f&&f():i&&i()}k=b("React").createElement(b("WorkGalahadDropdownMenu.react"),{alignment:c,contextRef:function(){return n.current},label:d,menuData:e,onToggle:o,position:j,shown:l,width:a});return[k,{ref:n,onClick:function(){return o(!l)}}]}e.exports=a}),null);

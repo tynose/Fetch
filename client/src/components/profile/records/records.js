@@ -23,8 +23,6 @@ export default class Records extends Component {
   render() {
     const { emailOpen } = this.state;
     const { record } = this.props;
-    console.log(record);
-    
     
     const display = emailOpen => {
       return {

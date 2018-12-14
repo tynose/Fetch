@@ -49,3 +49,9 @@
   }
 }
 
+@media #{$phone} {
+  .timelinePosts {
+    width: 100%;
+  }
+}
+

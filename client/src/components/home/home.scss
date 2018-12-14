@@ -66,7 +66,6 @@
     display: flex;
     align-items: flex-start;
     width: 50%;
-    height: 50%;
   }
   &__footer {
     align-items: center;
@@ -107,5 +106,21 @@
     display: flex;
     align-self: flex-start;
     margin-left: 20px;
+  }
+}
+
+@media #{$phone} {
+  .home {
+    &__content {
+      height: 100%;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.65);
+    }
+    &__footerContent {
+      flex-direction: column;
+    }
+    &__missionStatementText {
+      font-size: 1.5rem;
+    }
   }
 }

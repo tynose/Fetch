@@ -76,3 +76,11 @@
     }
   }
 }
+
+@media #{$phone} {
+  .detailsForm {
+    &__picture {
+      display: none;
+    }
+  }
+}

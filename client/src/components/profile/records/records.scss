@@ -31,3 +31,20 @@
     text-align: center;
   }
 }
+
+@media #{$phone} {
+  .records {
+    &__content {
+      width: 90vw;
+    }
+  }
+}
+
+@media #{$phone-small} {
+  .records {
+    &__content {
+      width: 95vw;
+      padding: 35px 10px;
+    }
+  }
+}

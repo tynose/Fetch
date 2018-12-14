@@ -52,13 +52,11 @@ export default class Profile extends Component {
 
   render() {
     const { details, record, timeline_card, userInfo } = this.state;
-    console.log(this.state);
-    
   
     return <div className="profile">
         <div className="profile__backgroundPhoto">
           <Nav />
-        <Details details={details} getData={this.getData} userInfo={userInfo} />
+          <Details details={details} getData={this.getData} userInfo={userInfo} />
         </div>
         <div className="profile__mainContent">
           <Records userInfo={userInfo} record={record} />

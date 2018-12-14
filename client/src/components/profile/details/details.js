@@ -58,7 +58,7 @@ export default class Details extends Component {
               <p className="details__infoText">{details.breed}</p>
             </div>
             <div className="details__info">
-              <h4 className="details__infoTitle">Gender</h4>
+              <h4 className="details__infoTitle">Sex</h4>
               <p className="details__infoText">{details.gender}</p>
             </div>
             <div className="details__info">

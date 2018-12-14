@@ -57,3 +57,24 @@
     }
   }
 }
+
+@media #{$phone} {
+  .details {
+    flex-direction: column;
+    height: auto;
+    display: initial;
+    width: 90vw;
+    &__picture {
+      width: 100%;
+    }
+  }
+}
+
+@media #{$phone-small} {
+  .details {
+    width: 95vw;
+    &__picture {
+      width: 100%;
+    }
+  }
+}

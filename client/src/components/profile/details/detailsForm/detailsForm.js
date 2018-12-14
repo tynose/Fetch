@@ -15,24 +15,28 @@ export default class DetailsForm extends Component {
     const { name, value, pattern } = event.target;
     const regex = new RegExp(pattern);
     const isValid = regex.test(value);
-
+    
     this.setState({
       fields: {
         ...this.state.fields,
         [name]: { value, isValid }
       }
-    })
-    this.validate();
-
+    }, this.validate)
   }
 
-  validate = async() => {
+   validate = async() => {
     const { fields } = this.state;  
 
     const validateFields = () => {
       let isAllFieldsValid = true;
 
       for (const i in fields) {
+
+
+
+
+
+
         if (!fields[i].isValid) {
           isAllFieldsValid = false
           break;
@@ -128,37 +132,37 @@ export default class DetailsForm extends Component {
             <form className="detailsForm__form" onSubmit={event => this.formSubmit(event)}>
               <div className="detailsForm__inputFields">
                 <label className="detailsForm__label">
-                  <input className="detailsForm__input" type="text" name="name" value={name.value} onChange={this.handleChange} placeholder="name" pattern="[A-Za-z0-9]{1,20}" />
+                  <input className="detailsForm__input" type="text" name="name" value={name.value} onChange={this.handleChange} placeholder="name" pattern="^(?!\s*$).+" />
                   {!name.isValid && submited && <span className="detailsForm__input-error">
                       a name is required
                     </span>}
                 </label>
                 <label className="detailsForm__label">
-                <input className="detailsForm__input" type="text" name="age" value={age.value} onChange={this.handleChange} placeholder="age" pattern="[A-Za-z0-9]{1,20}" />
+                <input className="detailsForm__input" type="text" name="age" value={age.value} onChange={this.handleChange} placeholder="age" pattern="^(?!\s*$).+" />
                   {!age.isValid && submited && <span className="detailsForm__input-error">
                       a age is required
                     </span>}
                 </label>
                 <label className="detailsForm__label">
-                  <input className="detailsForm__input" type="text" name="breed" value={breed.value} onChange={this.handleChange} placeholder="breed" pattern="[A-Za-z0-9]{1,20}" />
+                  <input className="detailsForm__input" type="text" name="breed" value={breed.value} onChange={this.handleChange} placeholder="breed" pattern="^(?!\s*$).+" />
                   {!breed.isValid && submited && <span className="detailsForm__input-error">
                       a breed is required
                     </span>}
                 </label>
                 <label className="detailsForm__label">
-                  <input className="detailsForm__input" type="text" name="gender" value={gender.value} onChange={this.handleChange} placeholder="gender" pattern="[A-Za-z0-9]{1,20}" />
+                  <input className="detailsForm__input" type="text" name="gender" value={gender.value} onChange={this.handleChange} placeholder="sex" pattern="^(?!\s*$).+" />
                   {!gender.isValid && submited && <span className="detailsForm__input-error">
-                      a gender is required
+                      a sex is required
                     </span>}
                 </label>
                 <label className="detailsForm__label">
-                  <input className="detailsForm__input" type="text" name="date_of_birth" value={date_of_birth.value} onChange={this.handleChange} placeholder="birthday" pattern="[A-Za-z0-9]{1,20}" />
+                  <input className="detailsForm__input" type="text" name="date_of_birth" value={date_of_birth.value} onChange={this.handleChange} placeholder="birthday" pattern="^(?!\s*$).+" />
                   {!date_of_birth.isValid && submited && <span className="detailsForm__input-error">
                       a birthday is required
                     </span>}
                 </label>
                 <label className="detailsForm__label">
-                  <input className="detailsForm__input" type="text" name="owner" value={owner.value} onChange={this.handleChange} placeholder="owner" pattern="[A-Za-z0-9]{1,20}" />
+                  <input className="detailsForm__input" type="text" name="owner" value={owner.value} onChange={this.handleChange} placeholder="owner" pattern="^(?!\s*$).+" />
                   {!owner.isValid && submited && <span className="detailsForm__input-error">
                       an owner is required
                     </span>}

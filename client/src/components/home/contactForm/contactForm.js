@@ -10,31 +10,38 @@ export default class ContactForm extends Component {
     this.state = defaultState;
   }
 
-  handleChange = async (event) => {
+  handleChange = (event) => {    
     const { name, value, pattern } = event.target;
     const regex = new RegExp(pattern);
-    const isValid = await regex.test(value);
+    const isValid = regex.test(value);
+    
     this.setState({
       fields: {
         ...this.state.fields,
         [name]: { value, isValid }
       }
-    })
-    this.validate()
+    }, this.validate)
   }
 
-  validate = () => {
-    const { fields } = this.state;
-    const validation = Object.keys(fields).reduce((a, c) => (fields[c].isValid ? ++a : a), 0);
-    if (validation === 2) {
-      this.setState({
-        enabled: true
-      });
-    } else {
-      this.setState({
-        enabled: false
-      });
+ validate = async() => {
+    const { fields } = this.state;  
+
+    const validateFields = () => {
+      let isAllFieldsValid = true;
+
+      for (const i in fields) {
+        if (!fields[i].isValid) {
+          isAllFieldsValid = false
+          break;
+        }
+      }
+
+      return isAllFieldsValid;
     }
+
+    await validateFields();
+    await this.setState({ enabled: validateFields() });
+    
   }
 
   submited = () => {
@@ -85,7 +92,7 @@ export default class ContactForm extends Component {
     return (
       <div className="contactForm">
         <h3 className="contactForm__header">Contact Us</h3>
-        <form className="contactForm__form" onSubmit={event => this.contactForm(event)}>
+        <form className="contactForm__form">
           <div className="contactForm__inputFields">
             <label className="contactForm__label">
               <FontAwesomeIcon className="contactForm__icon" icon="user" />
@@ -112,7 +119,7 @@ export default class ContactForm extends Component {
                 </span>}
             </label>
           </div>
-          <button className="contactForm__btn" onClick={() => this.submited()} type="submit">
+          <button className="contactForm__btn">
             Contact
           </button>
         </form>

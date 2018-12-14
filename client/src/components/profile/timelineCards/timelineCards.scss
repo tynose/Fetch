@@ -9,3 +9,19 @@
     height: auto;
   }
 }
+
+@media #{$phone} {
+  .timelineCard {
+    &__content {
+      width: 90vw;
+    }
+  }
+}
+
+@media #{$phone-small} {
+  .timelineCard {
+    &__content {
+      width: 95vw;
+    }
+  }
+}

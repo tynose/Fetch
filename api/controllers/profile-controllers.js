@@ -45,7 +45,10 @@ exports.profileLogin = function(req, res) {
           res.status(401).json({ msg: "invalid credentials" }
         )};
       });
-    });
+    })
+    .catch(err => {
+      console.log(err);    
+    })
 };
 
 // profile authorization  //

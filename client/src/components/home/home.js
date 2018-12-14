@@ -45,9 +45,12 @@ export default class Home extends Component {
         </div>
         <div id="mission" className="home__mission">
           <div className="home__missionStatement">
-            <h3>
-              Here at Fetch we strive to connect all of your pets essentials
-              records to those who may need them
+            <h3 className="home__missionStatementText">
+              <q>
+                {" "}
+                Here at Fetch we strive to connect all of your pets
+                essentials records to those who may need them{" "}
+              </q>
             </h3>
           </div>
         </div>
@@ -58,18 +61,20 @@ export default class Home extends Component {
                 <FontAwesomeIcon className="home__footerIcons" icon="map-pin" />
                 <h4>123 King St. West</h4>
               </div>
-            < div className="home__contact">
+              <div className="home__contact">
                 <FontAwesomeIcon className="home__footerIcons" icon="phone" />
                 <h4>705-717-1240</h4>
               </div>
               <div className="home__contact">
                 <FontAwesomeIcon className="home__footerIcons" icon="envelope" />
                 <h4>TylerNoseworthy21@gmail.com</h4>
-              </div>  
+              </div>
             </div>
             <ContactForm />
           </div>
-          <small className="home__copyright">&copy; Copyright 2018, Fetch</small> 
+          <small className="home__copyright">
+            &copy; Copyright 2018, Fetch
+          </small>
         </footer>
       </div>;
   }

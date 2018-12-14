@@ -9,31 +9,38 @@ export default class VetsForm extends Component {
     this.state = defaultState;
   }
 
-  handleChange = async (event) => {
+  handleChange = (event) => {    
     const { name, value, pattern } = event.target;
     const regex = new RegExp(pattern);
-    const isValid = await regex.test(value);
+    const isValid = regex.test(value);
+    
     this.setState({
       fields: {
         ...this.state.fields,
         [name]: { value, isValid }
       }
-    })
-    this.validate()
+    }, this.validate)
   }
 
-  validate = () => {
-    const { fields } = this.state;
-    const validation = Object.keys(fields).reduce((a, c) => (fields[c].isValid ? ++a : a), 0);
-    if (validation === 9) {
-      this.setState({
-        enabled: true
-      });
-    } else {
-      this.setState({
-        enabled: false
-      });
+  validate = async() => {
+    const { fields } = this.state;  
+
+    const validateFields = () => {
+      let isAllFieldsValid = true;
+
+      for (const i in fields) {
+        if (!fields[i].isValid) {
+          isAllFieldsValid = false
+          break;
+        }
+      }
+
+      return isAllFieldsValid;
     }
+
+    await validateFields();
+    await this.setState({ enabled: validateFields() });
+    
   }
 
   submited = () => {
@@ -61,9 +68,6 @@ export default class VetsForm extends Component {
     }
         
     if (enabled) {
-      this.setState({
-        defaultState,
-      });
       const init = {
         method: "POST",
         body: JSON.stringify(data),
@@ -75,7 +79,7 @@ export default class VetsForm extends Component {
       fetch("http://localhost:8080/record/create", init)
       .catch(err => {
         console.log(err);
-      });     
+      });    
     }
   }
 
@@ -96,13 +100,14 @@ export default class VetsForm extends Component {
 
     return ( 
       <div className="vetsForm">
+      {submited ? <h3 className="vetsForm__submitted">Your records have been sent</h3> : null}
         <img className="vetsForm__icon" src="/assets/icons/logo/logo_transparent.png" alt="logo" />
         <form className="vetsForm__form" onSubmit={event => this.record(event)}>
           <div className="vetsForm__inputFields">
             <label className="vetsForm__label">
               <input className="vetsForm__input" type="text" name="vet_clinic" value={vet_clinic.value} onChange={this.handleChange} placeholder="Vet Clinic" pattern="^(?!\s*$).+" />
               {!vet_clinic.isValid && submited && <span className="vetsForm__input-error">
-                  a a clinic name is required
+                  a clinic name is required
                 </span>}
             </label>
             <label className="vetsForm__label">
@@ -150,7 +155,7 @@ export default class VetsForm extends Component {
             <label className="vetsForm__label">
             <textarea className="vetsForm__input vetsForm__input--text" type="text" name="misc" value={misc.value} onChange={this.handleChange} placeholder="misc. information" pattern="^(?!\s*$).+" />
               {!misc.isValid && submited && <span className="vetsForm__input-error">
-                  password is required
+                  misc. is required
                 </span>}
             </label>
           </div>

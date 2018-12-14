@@ -9,32 +9,38 @@ export default class TimelineCardForm extends Component {
     this.state = defaultState;
   }
 
-
   handleChange = (event) => {    
-    const { name, value, pattern } = event.target;    
+    const { name, value, pattern } = event.target;
     const regex = new RegExp(pattern);
     const isValid = regex.test(value);
+    
     this.setState({
       fields: {
         ...this.state.fields,
         [name]: { value, isValid }
       }
-    })
-    this.validate()
+    }, this.validate)
   }
 
-  validate = () => {
-    const { fields } = this.state;
-    const validation = Object.keys(fields).reduce((a, c) => (fields[c].isValid ? ++a : a), 0);
-    if (validation === 2) {
-      this.setState({
-        enabled: true
-      });
-    } else {
-      this.setState({
-        enabled: false
-      });
+  validate = async() => {
+    const { fields } = this.state;  
+
+    const validateFields = () => {
+      let isAllFieldsValid = true;
+
+      for (const i in fields) {
+        if (!fields[i].isValid) {
+          isAllFieldsValid = false
+          break;
+        }
+      }
+
+      return isAllFieldsValid;
     }
+
+    await validateFields();
+    await this.setState({ enabled: validateFields() });
+    
   }
 
   submited = () => {
@@ -82,7 +88,7 @@ export default class TimelineCardForm extends Component {
     
     return <div className="timelineCardForm">
         {this.props.details && this.props.details.name ? <h4 className="timelineCardForm__header">
-            `What's ${this.props.details.name} been up to?`
+            {`What's ${this.props.details.name} been up to?`}
           </h4> : 
           <h4 className="timelineCardForm__header">
             What's your pet been up to?
