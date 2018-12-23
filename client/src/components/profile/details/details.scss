@@ -19,7 +19,7 @@
     padding: 15px;
     justify-content: space-evenly;
     display: flex;
-    width: 100%;
+    width: 50%;
     flex-direction: column;
   }
   &__text {
@@ -29,8 +29,23 @@
   &__picture {
     border-radius: 3px;
     height: 100%;
-    width: 45%;
+    width: 100%;
     object-fit: cover;
+  }
+  &__pictureIcon {
+    height: 200px;
+  }
+  &__pictureInput {
+    visibility: hidden;
+    width:0;
+    height:0
+  }
+  &__pictureLabel {
+    cursor: pointer;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   &__info {
     border-bottom: 1px solid gainsboro;
@@ -64,6 +79,9 @@
     height: auto;
     display: initial;
     width: 90vw;
+    &__content {
+      width: 100%;
+    }
     &__picture {
       width: 100%;
     }
