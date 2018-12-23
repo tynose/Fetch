@@ -44,7 +44,8 @@ export default class Details extends Component {
     return ( 
       <div className="details">
         <FontAwesomeIcon className="details__editIcon" onClick={this.handleClose} icon="edit" />
-        <img className="details__picture" src="/assets/images/profile-picture.jpg" alt="users animal" />
+        <input type="file" className="details__picture"  />
+        {/* <img className="details__picture" src="/assets/images/profile-picture.jpg" alt="users animal" /> */}
         {details ? 
         <div className="details__content">
           <h3 className="details__name">{details.name}</h3>
