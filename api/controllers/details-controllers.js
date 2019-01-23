@@ -1,3 +1,4 @@
+const fs = require('fs');
 const Details = require("../models/details");
 const Profile = require('../models/profile');
 

@@ -7,6 +7,7 @@ const detailsSchema = new Schema({
     required: false
   },
   profile_photo: {
+    data: Buffer,
     type: String,
     required: false
   },
