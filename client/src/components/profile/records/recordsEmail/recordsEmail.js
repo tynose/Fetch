@@ -71,11 +71,11 @@ export default class RecordsEmail extends Component {
     event.preventDefault();
     const msg = {
       to: fields.email.value,
-      from: 'tylernoseworthy21@gmail.com',
+      from: `${userInfo.email}`,
       subject: fields.subject.value,
       html: `${
         fields.text.value
-      }. <br><strong> visit this link to fill out their <a href='https://fetch-crud-app.herokuapp.com//vetsform/${
+      }. <br><strong> visit this link to fill out their <a href='https://fetch-crud-app.herokuapp.com/vetsform/${
         userInfo._id
       }'>form</a></strong>`
     };
