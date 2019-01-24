@@ -1,18 +1,21 @@
 const express = require('express'),
-  PORT = process.env.PORT || 8080;
-  (app = express()), (cors = require('cors'));
-  (bodyParser = require('body-parser')),
-  (bcrypt = require('bcrypt')),
-  (mongoose = require('mongoose')),
-  (jwt = require('jsonwebtoken')),
-  (sgMail = require('@sendgrid/mail'));
-  (profile = require('./routes/profile-route')),
-  (record = require('./routes/record-route')),
-  (details = require('./routes/details-route')),
-  (timelineCard = require('./routes/timeline-card-route')),
-  require('dotenv').config();
+  PORT = process.env.PORT || 8080,
+  app = express(),
+  path = require('path'),
+  cors = require('cors'),
+  bodyParser = require('body-parser'),
+  mongoose = require('mongoose'),
+  sgMail = require('@sendgrid/mail'),
+  profile = require('./routes/profile-route'),
+  record = require('./routes/record-route'),
+  details = require('./routes/details-route'),
+  timelineCard = require('./routes/timeline-card-route');
 
 // requiring ENV //
+
+app.use(express.static(path.join('../client/build')));
+
+require('dotenv').config();
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -33,7 +36,8 @@ app.use('/timelinecard', timelineCard);
 
 mongoose.Promise = global.Promise;
 mongoose.set('useCreateIndex', true);
-mongoose.connect(process.env.URI,
+mongoose.connect(
+  process.env.URI,
   { useNewUrlParser: true }
 );
 const db = mongoose.connection;
@@ -42,6 +46,11 @@ db.once('open', () => {
   console.log('Connected to database');
 });
 
+// -------------------------- //
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join( '/client/build/index.html'));
+});
 
 // -------------------------- //
 
