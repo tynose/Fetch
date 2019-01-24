@@ -15,8 +15,7 @@ const express = require('express'),
 
 require('dotenv').config();
 
-app.use(express.static(path.join('client/build')));
-
+app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -50,7 +49,7 @@ db.once('open', () => {
 // -------------------------- //
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join( '/client/build/index.html'));
+  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
 // -------------------------- //
@@ -59,5 +58,5 @@ app.listen(PORT, err => {
   if (err) {
     return console.error(err);
   }
-  console.log(`Listening on ${PORT}...`);
+  console.log(`Listening on localhost:${PORT}`);
 });
