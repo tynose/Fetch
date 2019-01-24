@@ -39,7 +39,7 @@ export default class Home extends Component {
               </button>
             </div>
           </div>
-          <a className="home__learn" href="#mission">
+          <a className="home__learn">
             Learn More
           </a>
         </div>

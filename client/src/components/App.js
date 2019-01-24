@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Profile from './profile/profile';
 import Home from './home/home';
 import VetsForm from './vetsForm/vetsForm';

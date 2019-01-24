@@ -31,7 +31,7 @@ export default class Profile extends Component {
         authorization: `Bearer ${localStorage.getItem('token')}`
       }
     }
-    fetch('/profile/me', init)
+    fetch(' /profile/me', init)
       .then(resp => resp.json())
       .then(data => {
         this.setState({
