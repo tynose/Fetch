@@ -14,7 +14,7 @@ export default class TimelinePost extends Component {
     const init = {
       method: "DELETE"
     }
-    fetch(`http://localhost:8080/timelinecard/${this.props.id}/delete`, init)
+    fetch(`/timelinecard/${this.props.id}/delete`, init)
       .then(() => this.props.getData())
       .catch(err => {
         console.log(err);

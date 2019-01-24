@@ -76,7 +76,7 @@ export default class VetsForm extends Component {
         }
       };
 
-      fetch("http://localhost:8080/record/create", init)
+      fetch("/record/create", init)
       .catch(err => {
         console.log(err);
       });    

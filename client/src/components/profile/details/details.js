@@ -21,7 +21,7 @@ export default class Details extends Component {
         authorization: `Bearer ${localStorage.getItem('token')}`
       }
     };
-    fetch('http://localhost:8080/profile/me', init)
+    fetch('/profile/me', init)
       .then(resp => resp.json())
       .then(data => {
         this.setState({

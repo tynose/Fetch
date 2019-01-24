@@ -71,7 +71,7 @@ export default class TimelineCardForm extends Component {
         }
       };
 
-      fetch("http://localhost:8080/timelinecard/create", init)
+      fetch("/timelinecard/create", init)
         .then(() => this.props.getData())
         .catch(err => {
           console.log(err);

@@ -91,7 +91,7 @@ export default class SignUp extends Component {
       }
     };
 
-    fetch('http://localhost:8080/profile/signup', init)
+    fetch('/profile/signup', init)
       .catch(err => {
         console.log(err);
       })

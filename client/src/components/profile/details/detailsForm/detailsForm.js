@@ -32,11 +32,6 @@ export default class DetailsForm extends Component {
 
       for (const i in fields) {
 
-
-
-
-
-
         if (!fields[i].isValid) {
           isAllFieldsValid = false
           break;
@@ -83,7 +78,7 @@ export default class DetailsForm extends Component {
         }
       };
 
-      fetch("http://localhost:8080/details/create", init)
+      fetch("/details/create", init)
         .then(() => this.props.getData())
         .catch(err => {
           console.log(err);

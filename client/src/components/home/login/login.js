@@ -85,7 +85,7 @@ export default class Login extends Component {
         }
       };
 
-      fetch('http://localhost:8080/profile/login', init)
+      fetch('/profile/login', init)
         .then(resp => resp.json())
         .then(data => {
           localStorage.setItem('token', data.token)
