@@ -5,7 +5,6 @@ const express = require('express'),
   cors = require('cors'),
   bodyParser = require('body-parser'),
   mongoose = require('mongoose'),
-  sgMail = require('@sendgrid/mail'),
   profile = require('./routes/profile-route'),
   record = require('./routes/record-route'),
   details = require('./routes/details-route'),
@@ -16,8 +15,6 @@ const express = require('express'),
 require('dotenv').config();
 
 app.use(express.static(path.resolve(__dirname, '../client/build')));
-
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // setup middleware //
 

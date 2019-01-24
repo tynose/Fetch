@@ -75,9 +75,7 @@ export default class RecordsEmail extends Component {
       subject: fields.subject.value,
       html: `${
         fields.text.value
-      }. <br><strong> visit this link to fill out their <a href='https://fetch-crud-app.herokuapp.com/vetsform/${
-        userInfo._id
-      }'>form</a></strong>`
+      }. <br><strong> visit this link to fill out their <a href='https://fetch-crud-app.herokuapp.com/#/vetsform/${userInfo._id}'>form</a></strong>`
     };
     const init = {
       method: 'POST',
