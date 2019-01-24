@@ -13,9 +13,10 @@ const express = require('express'),
 
 // requiring ENV //
 
+require('dotenv').config();
+
 app.use(express.static(path.join('../client/build')));
 
-require('dotenv').config();
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
